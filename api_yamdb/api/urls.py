@@ -1,6 +1,6 @@
 from api.views.reviews import (CategoryViewSet, CommentViewSet, GenreViewSet,
                                ReviewViewSet, TitleViewSet)
-from api.views.users import EmailCheck, SignUp, UserViewSet
+from api.views.users import emailcheck, signup, UserViewSet
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
@@ -21,6 +21,6 @@ router.register(
 
 urlpatterns = [
     path('v1/', include(router.urls)),
-    path('v1/auth/signup/', SignUp, name='auth_signup'),
-    path('v1/auth/token/', EmailCheck, name='auth_token'),
+    path('v1/auth/signup/', signup, name='auth_signup'),
+    path('v1/auth/token/', emailcheck, name='auth_token'),
 ]
