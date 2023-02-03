@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
     def validate_username(self, username):
         if username == 'me':
             raise serializers.ValidationError('Имя me выбирать не стоит')
-        elif username is None or username == "":
+        if username is None or username == "":
             raise serializers.ValidationError('Заполните поле имя')
         return username
 

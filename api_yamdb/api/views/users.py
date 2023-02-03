@@ -50,7 +50,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 @api_view(["POST"])
 @permission_classes([AllowAny])
-def SignUp(request):
+def signup(request):
     serializer = AuthSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     serializer.save()
@@ -70,7 +70,7 @@ def SignUp(request):
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
-def EmailCheck(request):
+def emailcheck(request):
     serializer = TokenSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
