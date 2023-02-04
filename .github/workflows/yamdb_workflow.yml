@@ -24,8 +24,7 @@ jobs:
         # обновление pip
         python -m pip install --upgrade pip 
         # установка flake8 и его плагинов
-        pip install flake8 pep8-naming flake8-broken-line 
-        pip install flake8-return flake8-isort
+        pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
         # установка зависимостей
         cd api_yamdb/
         pip install -r requirements.txt 
@@ -35,6 +34,7 @@ jobs:
         python -m flake8
         cd api_yamdb/
         python manage.py test
+  
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -71,7 +71,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
         script: |
-          sudo docker pull denisktv/yamdb
           sudo docker compose stop
           sudo docker compose rm web
           touch .env
@@ -82,6 +81,7 @@ jobs:
           echo DB_HOST=${{ secrets.DB_HOST }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           sudo docker compose up -d
+
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
