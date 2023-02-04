@@ -1,4 +1,4 @@
-name: Yamdb workflow
+name: Django-app workflow
 
 on: [push]
 
@@ -32,8 +32,7 @@ jobs:
         # запуск проверки проекта по flake8
         python -m flake8
         # запуск pytest
-        cd api_yamdb/
-        python manage.py test
+        pytest
   
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
