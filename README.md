@@ -11,7 +11,6 @@ _Благодаря этому проекту можно:_
 
 ***
 ### Технологии
-
 API Yatube использует open-source технологии:
 - [Python 3.7 ](https://www.python.org/downloads/release/python-379/)
 - [Django REST framework 3.12](https://www.django-rest-framework.org/community/3.12-announcement/)
@@ -21,7 +20,6 @@ API Yatube использует open-source технологии:
 
 
 ## Шаблон заполнения .env в директории infra/ на примере еnv.example
-
 ```
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=postgres
@@ -29,6 +27,7 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 DB_HOST=db
 DB_PORT=5432
+SECRET_KEY=some_key
 ```
 
 
