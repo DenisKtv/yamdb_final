@@ -1,7 +1,10 @@
 name: Django-app workflow
+
 on: [push]
+
 jobs:
   tests:
+    # «Раннер» — создание изолированного окружения с последней версией Ubuntu 
     runs-on: ubuntu-latest
 
     steps:
@@ -65,8 +68,9 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
+        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
         script: |
+          sudo docker pull denisktv/yamdb
           sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
