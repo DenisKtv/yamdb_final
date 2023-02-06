@@ -1,6 +1,8 @@
 # yamdb_final
 ![workflow](https://github.com/DenisKtv/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
+### Развернутый проект доступен по [ссылке](http://51.250.26.235/api/v1/)
+
 Проект YaMDb собирает отзывы пользователей на произведения. 
 
 _Благодаря этому проекту можно:_
